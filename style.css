@@ -1,0 +1,100 @@
+/* ==============================
+   DESIGN TOKENS
+============================== */
+:root {
+  --clr-bg: #050505;
+  --clr-bg-alt: #0a0a0a;
+  --clr-surface: #111111;
+  --clr-surface-2: #1a1a1a;
+  --clr-text: #f0f0f0;
+  --clr-text-muted: #999999;
+  --clr-text-muted-alt: #c0c0c0;
+  --clr-text-muted-alt-2: #eeeeee;
+  --clr-accent: #e10600;
+  --clr-accent-dim: rgba(225, 6, 0, 0.15);
+  --clr-border: #1f1f1f;
+
+  --ff-heading: "Sora", sans-serif;
+  --ff-body: "Figtree", sans-serif;
+  --ff-accent: "Playfair Display", serif;
+
+  --space-section: clamp(5rem, 10vw, 8rem);
+  --space-container: max(4%, 2rem);
+  --space-gap: 2rem;
+
+  --fw-light: 300;
+  --fw-regular: 400;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+
+  --transition-fast: 0.25s ease;
+  --transition-med: 0.4s cubic-bezier(0.22, 0.61, 0.36, 1);
+  --transition-slow: 0.6s cubic-bezier(0.22, 0.61, 0.36, 1);
+
+  --nav-height: 70px;
+}
+
+/* ==============================
+   GLOBAL RESET
+============================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--nav-height);
+}
+
+body {
+  background: var(--clr-bg);
+  color: var(--clr-text);
+  font-family: var(--ff-body);
+  font-weight: var(--fw-light);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+}
+
+/* ==============================
+   ACCESSIBILITY
+============================== */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 1rem;
+  padding: 0.75rem 1.5rem;
+  background: var(--clr-accent);
+  color: white;
+  text-decoration: none;
+  font-size: 0.85rem;
+  z-index: 9999;
+  border-radius: 0 0 4px 4px;
+  transition: top 0.2s;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+:focus-visible {
+  outline: 2px solid var(--clr-accent);
+  outline-offset: 3px;
+}
