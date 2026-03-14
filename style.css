@@ -993,6 +993,72 @@ details.is-open .faq-content {
 }
 
 /* ==============================
+   GIVE & MERCH
+============================== */
+.give-merch-layout {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 3rem;
+  align-items: start;
+  margin-top: 1rem;
+}
+
+.give-merch-divider {
+  width: 1px;
+  align-self: stretch;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    var(--clr-border),
+    transparent
+  );
+}
+
+.give-merch-card {
+  padding: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  height: 100%;
+}
+
+.gm-icon {
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--clr-border);
+  margin-bottom: 1.5rem;
+  transition: border-color var(--transition-fast);
+}
+
+.give-merch-card:hover .gm-icon {
+  border-color: var(--clr-accent);
+}
+
+.give-merch-card h3 {
+  font-family: var(--ff-heading);
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin-bottom: 1rem;
+}
+
+.give-merch-card p {
+  font-size: 1rem;
+  color: var(--clr-text-muted);
+  line-height: 1.7;
+  max-width: 460px;
+  margin-bottom: 0.5rem;
+  flex: 1;
+}
+
+.give-merch-card .register-btn {
+  margin-top: 2rem;
+}
+
+/* ==============================
    KEYFRAMES
 ============================== */
 @keyframes heroFade {
