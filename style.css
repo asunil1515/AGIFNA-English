@@ -895,6 +895,104 @@ body.nav-open {
 }
 
 /* ==============================
+   FAQ
+============================== */
+.faq-container {
+  width: 100%;
+}
+
+details {
+  border-bottom: 1px solid var(--clr-border);
+  border-left: 1px solid transparent;
+  padding: 1.5rem 0;
+  padding-left: 0;
+  background: transparent;
+  transition:
+    background var(--transition-med),
+    padding-left var(--transition-med),
+    border-left-color var(--transition-med);
+}
+
+details.is-open {
+  background: rgba(255, 255, 255, 0.01);
+  padding-left: 1rem;
+  border-left-color: var(--clr-accent);
+}
+
+summary {
+  cursor: pointer;
+  font-size: 1.1rem;
+  font-weight: var(--fw-regular);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  list-style: none;
+  position: relative;
+  padding-right: 2.5rem;
+  transition: color var(--transition-fast);
+  line-height: 1.4;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+summary:hover {
+  color: var(--clr-accent);
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
+
+summary::marker {
+  display: none;
+  content: "";
+}
+
+summary::after {
+  content: "+";
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%) rotate(0deg);
+  font-family: var(--ff-heading);
+  font-size: 1.4rem;
+  color: var(--clr-accent);
+  transition:
+    transform var(--transition-med),
+    opacity var(--transition-fast);
+  transform-origin: center;
+}
+
+details.is-open summary::after {
+  transform: translateY(-50%) rotate(135deg);
+}
+
+.faq-content {
+  overflow: hidden;
+  height: 0;
+  opacity: 0;
+  transition:
+    height var(--transition-med),
+    opacity 0.3s ease;
+}
+
+details.is-open .faq-content {
+  opacity: 1;
+}
+
+.faq-content p {
+  padding-top: 1rem;
+  padding-bottom: 0.5rem;
+  max-width: 700px;
+  color: var(--clr-text-muted);
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+.faq-content strong {
+  color: var(--clr-text);
+}
+
+/* ==============================
    KEYFRAMES
 ============================== */
 @keyframes heroFade {
