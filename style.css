@@ -815,6 +815,86 @@ body.nav-open {
 }
 
 /* ==============================
+   SCHEDULE
+============================== */
+.schedule-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 0;
+}
+
+.schedule-day {
+  border-left: 1px solid var(--clr-border);
+  padding: 2rem;
+  transition: background var(--transition-fast);
+  min-height: 280px;
+}
+
+.schedule-day:first-child {
+  border-left: 1px solid var(--clr-accent);
+}
+
+.schedule-day:hover {
+  background: rgba(255, 255, 255, 0.0375);
+}
+
+.day-header {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--clr-border);
+}
+
+.day-name {
+  font-family: var(--ff-heading);
+  font-size: 1.6rem;
+  font-weight: var(--fw-semibold);
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+.day-date {
+  font-size: 0.75rem;
+  color: var(--clr-accent);
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin-top: 0.25rem;
+  font-weight: var(--fw-semibold);
+}
+
+.day-events {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.event-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.event-time {
+  font-size: 0.7rem;
+  color: var(--clr-text-muted);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: var(--fw-regular);
+}
+
+.event-name {
+  font-size: 1rem;
+  color: var(--clr-text);
+  font-weight: var(--fw-regular);
+}
+
+.event-name--placeholder {
+  color: var(--clr-text-muted);
+  opacity: 0.4;
+}
+
+/* ==============================
    KEYFRAMES
 ============================== */
 @keyframes heroFade {
