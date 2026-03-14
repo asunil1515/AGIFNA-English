@@ -1059,6 +1059,81 @@ details.is-open .faq-content {
 }
 
 /* ==============================
+   FOOTER
+============================== */
+.site-footer {
+  padding: 4rem var(--space-container);
+  border-top: 1px solid var(--clr-border);
+  text-align: center;
+  background: var(--clr-bg);
+}
+
+.footer-inner {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.footer-logo {
+  display: inline-block;
+  margin-bottom: 1.5rem;
+  transition: opacity var(--transition-fast);
+}
+
+.footer-logo:hover {
+  opacity: 0.8;
+}
+
+.footer-logo img {
+  height: 110px;
+  width: auto;
+  margin: 0 auto;
+}
+
+.footer-brand {
+  font-family: var(--ff-heading);
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  margin-bottom: 0.5rem;
+}
+
+.footer-italic {
+  font-family: var(--ff-accent);
+  font-style: italic;
+  text-transform: none;
+}
+
+.footer-tagline {
+  font-size: 0.85rem;
+  color: var(--clr-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin-bottom: 0.5rem;
+}
+
+.footer-info {
+  font-size: 0.8rem;
+  color: var(--clr-accent);
+  letter-spacing: 2px;
+  margin-bottom: 0.5rem;
+}
+
+.footer-info-venue {
+  font-size: 0.72rem;
+  color: var(--clr-text-muted);
+  letter-spacing: 1px;
+  margin-bottom: 2rem;
+  opacity: 0.7;
+}
+
+.footer-copy {
+  font-size: 0.7rem;
+  color: var(--clr-text-muted);
+  letter-spacing: 1px;
+  opacity: 0.5;
+}
+
+/* ==============================
    KEYFRAMES
 ============================== */
 @keyframes heroFade {
