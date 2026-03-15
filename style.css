@@ -1381,16 +1381,6 @@ details.is-open .faq-content {
   }
 }
 
-@keyframes dotPulse {
-  0%,
-  100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.4;
-  }
-}
-
 @keyframes scrollPulseMobile {
   0%,
   100% {
@@ -1407,6 +1397,16 @@ details.is-open .faq-content {
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@keyframes dotPulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
   }
 }
 
@@ -1432,7 +1432,7 @@ details.is-open .faq-content {
     background: rgba(5, 5, 5, 0.97);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    padding: calc(var(--nav-height) + 21rem) 2.5rem 3rem;
+    padding: calc(var(--nav-height) + 2rem) 2.5rem 3rem;
     gap: 0;
     justify-content: flex-start;
     align-items: flex-start;
