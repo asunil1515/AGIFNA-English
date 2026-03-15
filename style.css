@@ -1330,3 +1330,986 @@ details.is-open .faq-content {
     opacity: 0.4;
   }
 }
+
+@keyframes scrollPulseMobile {
+  0%,
+  100% {
+    opacity: 0.3;
+    height: 20px;
+  }
+  50% {
+    opacity: 1;
+    height: 35px;
+  }
+}
+
+/* ============================================================
+   RESPONSIVE
+   Order: 900px → 769–900px range → 768px → 480px → reduced motion
+============================================================ */
+
+/* ==============================
+   900px
+============================== */
+@media (max-width: 900px) {
+  /* Nav → mobile drawer */
+  .nav-links {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: min(320px, 85vw);
+    height: 100vh;
+    height: 100dvh;
+    background: rgba(5, 5, 5, 0.97);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    padding: calc(var(--nav-height) + 21rem) 2.5rem 3rem;
+    gap: 0;
+    justify-content: flex-start;
+    align-items: flex-start;
+    transform: translateX(100%);
+    transition: transform var(--transition-med);
+    border-left: 1px solid rgba(255, 255, 255, 0.06);
+    z-index: 105;
+  }
+
+  .nav-links.open {
+    transform: translateX(0);
+  }
+
+  .nav-links li {
+    width: 100%;
+    border-bottom: 1px solid var(--clr-border);
+  }
+
+  .nav-links a {
+    display: block;
+    padding: 1.25rem 0;
+    font-size: 0.9rem;
+    letter-spacing: 3px;
+  }
+
+  .nav-links a::after {
+    display: none;
+  }
+
+  .nav-register {
+    border: none !important;
+    padding: 1.25rem 0 !important;
+    margin-top: 1rem;
+  }
+
+  .mobile-toggle {
+    display: flex;
+  }
+
+  /* Hero */
+  .hero {
+    padding: 6rem 6% 4.5rem;
+  }
+
+  .hero-tag {
+    font-size: 0.65rem;
+    letter-spacing: 3.5px;
+    margin-top: 4.5em;
+    margin-bottom: 2rem;
+  }
+
+  .hero-divider {
+    width: 170px;
+    gap: 0.9rem;
+    margin: 2em auto 1.5rem;
+  }
+
+  .hero-subtitle {
+    font-size: clamp(0.65rem, 1.9vw, 1.15rem);
+    letter-spacing: clamp(5px, 1vw, 8px);
+  }
+
+  .hero-subtitle em {
+    font-size: 1.35em;
+    letter-spacing: 1.75px;
+  }
+
+  .hero-info {
+    gap: 2.25rem;
+    margin-top: 2.25rem;
+  }
+
+  .info-label {
+    font-size: 0.6rem;
+    letter-spacing: 2.75px;
+  }
+
+  .info-value {
+    font-size: 1.2rem;
+    letter-spacing: 2.5px;
+  }
+
+  .register-btn {
+    padding: 1.05rem 2.25rem;
+    font-size: 0.825rem;
+    letter-spacing: 2.85px;
+    gap: 0.9rem;
+    margin-top: 2.85rem;
+  }
+
+  .scroll-indicator {
+    bottom: 1.75rem;
+  }
+
+  .scroll-indicator span {
+    font-size: 0.575rem;
+    letter-spacing: 2.75px;
+  }
+
+  /* Countdown */
+  .countdown-wrapper {
+    margin-top: -8rem;
+    margin-bottom: -1.25rem;
+  }
+
+  .countdown-card {
+    max-width: 620px;
+    padding: 2.25rem 2.5rem;
+    border-radius: 18px;
+    gap: 1.75rem;
+  }
+
+  .countdown-status {
+    font-size: 0.7rem;
+    letter-spacing: 3.75px;
+  }
+
+  .countdown-block {
+    padding: 0 1rem;
+  }
+
+  .countdown-number {
+    font-size: clamp(2.2rem, 4.5vw, 3rem);
+    letter-spacing: -1.5px;
+  }
+
+  .countdown-unit {
+    font-size: 0.575rem;
+    letter-spacing: 3.5px;
+  }
+
+  .countdown-sep {
+    font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+    padding-bottom: 1.05rem;
+  }
+
+  .countdown-footer {
+    font-size: 0.8rem;
+    padding-top: 1.75rem;
+    gap: 0.55rem;
+  }
+
+  .countdown-footer svg {
+    width: 19px;
+    height: 19px;
+  }
+
+  /* About */
+  .about-layout {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .about-main p {
+    max-width: 98%;
+    font-size: 1rem;
+  }
+
+  .about-lead {
+    font-size: 1.1rem !important;
+    max-width: 620px;
+  }
+
+  /* Schedule */
+  .schedule-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* ==============================
+   769px–900px RANGE
+============================== */
+@media (min-width: 769px) and (max-width: 900px) {
+  /* Schedule — Saturday accent border in 2×2 grid */
+  .schedule-day:nth-child(3) {
+    border-left: 1px solid var(--clr-accent);
+  }
+
+  /* Give & Merch — intermediate button */
+  .give-merch-card .register-btn {
+    font-size: 0.675rem;
+    letter-spacing: 2.6px;
+    padding: 1rem 2.1rem;
+  }
+}
+
+/* ==============================
+   768px
+============================== */
+@media (max-width: 768px) {
+  /* Sections */
+  .section {
+    padding: 4rem 6%;
+  }
+
+  .section-label {
+    font-size: 0.7rem;
+    letter-spacing: 3px;
+    margin-bottom: 0.75rem;
+  }
+
+  .section-title {
+    font-size: clamp(1.8rem, 5.5vw, 2.4rem);
+    margin-bottom: 2.25rem;
+    letter-spacing: 0.5px;
+  }
+
+  .section-title em {
+    font-size: 0.82em;
+  }
+
+  .section-desc {
+    font-size: 0.95rem;
+  }
+
+  /* Hero */
+  .hero {
+    padding: 6rem 6% 4rem;
+  }
+
+  .title-line--year {
+    letter-spacing: -3px;
+  }
+
+  .hero-tag {
+    font-size: 0.6rem;
+    letter-spacing: 3px;
+    margin-top: 4em;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-divider {
+    width: 140px;
+    gap: 0.8rem;
+    margin: 1.25em auto 1rem;
+  }
+
+  .hero-subtitle {
+    font-size: clamp(0.6rem, 1.8vw, 1.1rem);
+    letter-spacing: 4px;
+  }
+
+  .hero-subtitle em {
+    font-size: 1.3em;
+    letter-spacing: 1.5px;
+  }
+
+  .hero-info {
+    gap: 1.25rem;
+    margin-top: 1.75rem;
+  }
+
+  .info-label {
+    font-size: 0.55rem;
+    letter-spacing: 2.5px;
+  }
+
+  .info-value {
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+  }
+
+  .register-btn {
+    padding: 1rem 2rem;
+    font-size: 0.8rem;
+    letter-spacing: 2.75px;
+    gap: 0.85rem;
+    margin-top: 2.75rem;
+  }
+
+  .scroll-indicator {
+    bottom: 1.5rem;
+  }
+
+  .scroll-indicator span {
+    font-size: 0.55rem;
+    letter-spacing: 2.5px;
+  }
+
+  /* Countdown */
+  .countdown-wrapper {
+    margin-top: -3.5rem;
+    margin-bottom: -3.5rem;
+  }
+
+  .countdown-card {
+    width: clamp(300px, 85vw, 450px);
+    max-width: none;
+    padding: 2rem 1.5rem;
+    border-radius: 16px;
+    gap: 1.5rem;
+  }
+
+  .countdown-status {
+    font-size: 0.65rem;
+    letter-spacing: 3.5px;
+  }
+
+  .countdown-block {
+    padding: 0 0.75rem;
+  }
+
+  .countdown-number {
+    font-size: 2.2rem;
+    letter-spacing: -1px;
+  }
+
+  .countdown-unit {
+    font-size: 0.55rem;
+    letter-spacing: 3px;
+  }
+
+  .countdown-sep {
+    font-size: 1.2rem;
+    padding-bottom: 0.9rem;
+  }
+
+  .countdown-footer {
+    display: inline-flex;
+    font-size: 0.7rem;
+    gap: 0.5rem;
+    margin: 0 auto;
+    padding-top: 1.5rem;
+  }
+
+  .countdown-footer svg {
+    width: 18px;
+    height: 18px;
+    align-self: flex-start;
+  }
+
+  .countdown-venue-link {
+    line-height: 1.5;
+    text-align: left;
+  }
+
+  /* About */
+  .about-main p {
+    font-size: 0.95rem;
+    margin-bottom: 1.25rem;
+    max-width: 100%;
+  }
+
+  .about-lead {
+    font-size: 1.05rem !important;
+  }
+
+  .about-pillars {
+    border-left: none;
+    padding-left: 0;
+    border-top: 1px solid var(--clr-border);
+    padding-top: 1.75rem;
+  }
+
+  .pillar {
+    gap: 1rem;
+    padding: 1.1rem 0;
+  }
+
+  .pillar-text {
+    font-size: 0.9rem;
+    letter-spacing: 0.25px;
+  }
+
+  .pillar-number {
+    font-size: 0.7rem;
+    min-width: 20px;
+  }
+
+  /* Speakers */
+  .speakers-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .speaker-img-wrap,
+  .speaker-img-placeholder {
+    height: 260px;
+  }
+
+  .speaker-info {
+    padding: 1.25rem 1.5rem 1.75rem;
+  }
+
+  .speaker-info h3 {
+    font-size: 1.3rem;
+    letter-spacing: 1.5px;
+  }
+
+  .speaker-role {
+    font-size: 0.7rem;
+    letter-spacing: 1.5px;
+    margin-bottom: 0.75rem;
+  }
+
+  .speaker-info p {
+    font-size: 0.85rem;
+  }
+
+  .speaker-card--pending .speaker-info h3 {
+    font-size: 0.9rem;
+    letter-spacing: 2.5px;
+  }
+
+  /* Schedule */
+  .schedule-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .schedule-day {
+    border: 1px solid var(--clr-border);
+    border-bottom: none;
+    padding: 1.75rem 1.5rem;
+    min-height: 180px;
+  }
+
+  .schedule-day:first-child {
+    border-top-color: var(--clr-accent);
+    border-left-color: var(--clr-border);
+  }
+
+  .schedule-day:last-child {
+    border-bottom: 1px solid var(--clr-border);
+  }
+
+  .day-name {
+    font-size: 1.35rem;
+    letter-spacing: 2.5px;
+  }
+
+  .day-date {
+    font-size: 0.7rem;
+    letter-spacing: 2.5px;
+  }
+
+  .day-header {
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.75rem;
+  }
+
+  .event-time {
+    font-size: 0.65rem;
+  }
+
+  .event-name {
+    font-size: 0.9rem;
+  }
+
+  /* FAQ */
+  summary {
+    font-size: 0.95rem;
+    letter-spacing: 1px;
+    padding-right: 2rem;
+    line-height: 1.35;
+  }
+
+  summary::after {
+    font-size: 1.2rem;
+  }
+
+  details {
+    padding: 1.25rem 0;
+  }
+
+  details.is-open {
+    padding-left: 0.75rem;
+  }
+
+  .faq-content p {
+    font-size: 0.85rem;
+    padding-top: 0.75rem;
+    padding-bottom: 0.35rem;
+    line-height: 1.65;
+  }
+
+  /* Give & Merch */
+  .give-merch-layout {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .give-merch-divider {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(
+      to right,
+      transparent,
+      var(--clr-border),
+      transparent
+    );
+  }
+
+  .give-merch-card {
+    padding: 2.25rem 0;
+  }
+
+  .give-merch-card h3 {
+    font-size: 1.5rem;
+    letter-spacing: 2.5px;
+    margin-bottom: 0.75rem;
+  }
+
+  .give-merch-card p {
+    font-size: 0.9rem;
+    line-height: 1.65;
+  }
+
+  .gm-icon {
+    width: 46px;
+    height: 46px;
+    margin-bottom: 1.25rem;
+  }
+
+  .gm-icon svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .give-merch-card .register-btn {
+    margin-top: 1.5rem;
+    padding: 1rem 2rem;
+    font-size: 0.75rem;
+    letter-spacing: 2.5px;
+  }
+
+  /* Footer */
+  .site-footer {
+    padding: 3rem 6%;
+  }
+
+  .footer-logo img {
+    height: 85px;
+  }
+
+  .footer-logo {
+    margin-bottom: 1.25rem;
+  }
+
+  .footer-tagline {
+    font-size: 0.75rem;
+    letter-spacing: 2.5px;
+  }
+
+  .footer-info {
+    font-size: 0.7rem;
+    letter-spacing: 1.5px;
+  }
+
+  .footer-info-venue {
+    font-size: 0.65rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .footer-copy {
+    font-size: 0.6rem;
+  }
+}
+
+/* ==============================
+   480px
+============================== */
+@media (max-width: 480px) {
+  /* Sections */
+  .section {
+    padding: 3.5rem 5%;
+  }
+
+  .section-label {
+    font-size: 0.6rem;
+    letter-spacing: 2.5px;
+    margin-bottom: 0.5rem;
+  }
+
+  .section-title {
+    font-size: clamp(1.5rem, 9vw, 3rem);
+    margin-bottom: 1.75rem;
+    letter-spacing: 1px;
+  }
+
+  .section-desc {
+    font-size: 0.85rem;
+    line-height: 1.6;
+  }
+
+  /* Hero */
+  .hero {
+    padding: 5rem 5% 3rem;
+  }
+
+  .title-line--italic {
+    font-size: clamp(2.6rem, 12vw, 3.2rem);
+  }
+
+  .title-line--italic + .title-line--italic {
+    font-size: clamp(2.8rem, 14vw, 3.6rem);
+  }
+
+  .title-line--year {
+    font-size: clamp(2.8rem, 13vw, 3.6rem);
+    letter-spacing: -2px;
+  }
+
+  .hero-tag {
+    font-size: 0.475rem;
+    letter-spacing: 2px;
+    margin-top: 4.75em;
+    margin-bottom: 1rem;
+  }
+
+  .hero-divider {
+    width: 150px;
+    gap: 0.6rem;
+    margin: 0.75em auto 0.75rem;
+  }
+
+  .hero-subtitle {
+    font-size: clamp(0.55rem, 3.25vw, 1rem);
+    letter-spacing: 3px;
+  }
+
+  .hero-subtitle em {
+    font-size: 1.25em;
+    letter-spacing: 1px;
+  }
+
+  .hero-info {
+    gap: 2rem;
+    margin-top: 1.5rem;
+  }
+
+  .info-label {
+    font-size: 0.5rem;
+    letter-spacing: 2px;
+    margin-bottom: 0.15rem;
+  }
+
+  .info-value {
+    font-size: 0.9rem;
+    letter-spacing: 1.5px;
+  }
+
+  .register-btn {
+    padding: 1rem 2.25rem;
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    gap: 0.75rem;
+    margin-top: 2.5rem;
+  }
+
+  .scroll-indicator {
+    bottom: 0.75rem;
+  }
+
+  .scroll-indicator span {
+    font-size: 0.5rem;
+    letter-spacing: 2px;
+  }
+
+  .scroll-line {
+    animation: scrollPulseMobile 2s ease-in-out infinite;
+  }
+
+  /* Countdown */
+  .countdown-wrapper {
+    margin-top: -5.5rem;
+    margin-bottom: -0.25rem;
+  }
+
+  .countdown-card {
+    padding: 1.75rem 1.2rem;
+    border-radius: 14px;
+    gap: 1rem;
+  }
+
+  .countdown-status {
+    font-size: 0.55rem;
+    letter-spacing: 3px;
+  }
+
+  .status-dot {
+    width: 5px;
+    height: 5px;
+  }
+
+  .countdown-block {
+    padding: 0 0.5rem;
+  }
+
+  .countdown-number {
+    font-size: 1.8rem;
+  }
+
+  .countdown-unit {
+    font-size: 0.5rem;
+    letter-spacing: 2px;
+  }
+
+  .countdown-sep {
+    font-size: 1rem;
+    padding-bottom: 0.6rem;
+  }
+
+  .countdown-footer {
+    font-size: 0.55rem;
+    gap: 0.35rem;
+    padding-top: 1rem;
+  }
+
+  .countdown-footer svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  /* About */
+  .about-main p {
+    font-size: 0.85rem;
+    line-height: 1.65;
+    margin-bottom: 1rem;
+  }
+
+  .about-lead {
+    font-size: 0.95rem !important;
+    line-height: 1.6;
+  }
+
+  .about-pillars {
+    padding-top: 1.5rem;
+  }
+
+  .pillar {
+    gap: 0.75rem;
+    padding: 0.9rem 0;
+  }
+
+  .pillar:hover {
+    padding-left: 0.25rem;
+  }
+
+  .pillar-text {
+    font-size: 0.8rem;
+  }
+
+  .pillar-number {
+    font-size: 0.65rem;
+    letter-spacing: 1.5px;
+    min-width: 18px;
+  }
+
+  /* Speakers */
+  .speakers-grid {
+    gap: 1.25rem;
+  }
+
+  .speaker-img-wrap,
+  .speaker-img-placeholder {
+    height: 220px;
+  }
+
+  .speaker-img-placeholder svg {
+    width: 36px;
+    height: 36px;
+  }
+
+  .speaker-info {
+    padding: 1rem 1.25rem 1.5rem;
+  }
+
+  .speaker-info h3 {
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    margin-bottom: 0.3rem;
+  }
+
+  .speaker-role {
+    font-size: 0.65rem;
+    letter-spacing: 1.5px;
+  }
+
+  .speaker-info p {
+    font-size: 0.8rem;
+    line-height: 1.55;
+  }
+
+  .speaker-card:hover {
+    transform: translateY(-3px);
+  }
+
+  .speaker-card--pending .speaker-info h3 {
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+  }
+
+  /* Schedule */
+  .schedule-day {
+    padding: 1.5rem 1.25rem;
+    min-height: 160px;
+  }
+
+  .day-name {
+    font-size: 1.15rem;
+    letter-spacing: 2px;
+  }
+
+  .day-date {
+    font-size: 0.6rem;
+    letter-spacing: 2px;
+  }
+
+  .day-header {
+    margin-bottom: 1rem;
+    padding-bottom: 0.6rem;
+  }
+
+  .event-time {
+    font-size: 0.6rem;
+    letter-spacing: 1.5px;
+  }
+
+  .event-name {
+    font-size: 0.8rem;
+  }
+
+  /* FAQ */
+  summary {
+    font-size: 0.8rem;
+    letter-spacing: 0.75px;
+    padding-right: 1.75rem;
+    line-height: 1.4;
+  }
+
+  summary::after {
+    font-size: 1rem;
+  }
+
+  details {
+    padding: 1rem 0;
+  }
+
+  details.is-open {
+    padding-left: 0.5rem;
+  }
+
+  .faq-content p {
+    font-size: 0.75rem;
+    padding-top: 0.6rem;
+    padding-bottom: 0.25rem;
+  }
+
+  /* Give & Merch */
+  .give-merch-card {
+    padding: 2rem 0;
+  }
+
+  .give-merch-card h3 {
+    font-size: 1.25rem;
+    letter-spacing: 2px;
+    margin-bottom: 0.6rem;
+  }
+
+  .give-merch-card p {
+    font-size: 0.8rem;
+    line-height: 1.6;
+    margin-bottom: 0.25rem;
+  }
+
+  .gm-icon {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 1rem;
+  }
+
+  .gm-icon svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .give-merch-card .register-btn {
+    margin-top: 1.25rem;
+    padding: 0.9rem 1.75rem;
+    font-size: 0.65rem;
+    letter-spacing: 2px;
+    gap: 0.6rem;
+  }
+
+  /* Footer */
+  .site-footer {
+    padding: 2.5rem 5%;
+  }
+
+  .footer-logo img {
+    height: 70px;
+  }
+
+  .footer-logo {
+    margin-bottom: 1rem;
+  }
+
+  .footer-tagline {
+    font-size: 0.65rem;
+    letter-spacing: 2px;
+    margin-bottom: 0.35rem;
+  }
+
+  .footer-info {
+    font-size: 0.6rem;
+    letter-spacing: 1px;
+    margin-bottom: 0.35rem;
+  }
+
+  .footer-info-venue {
+    font-size: 0.55rem;
+    letter-spacing: 0.5px;
+    margin-bottom: 1.25rem;
+  }
+
+  .footer-copy {
+    font-size: 0.55rem;
+    letter-spacing: 0.5px;
+  }
+}
+
+/* ==============================
+   REDUCED MOTION
+============================== */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .hero-content {
+    opacity: 1;
+    transform: none;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}
