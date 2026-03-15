@@ -617,6 +617,66 @@ body.nav-open {
 }
 
 /* ==============================
+   SCROLL REVEAL & STAGGER
+============================== */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition:
+    opacity 0.8s cubic-bezier(0.22, 0.61, 0.36, 1),
+    transform 0.8s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal.visible .speaker-card,
+.reveal.visible .schedule-day,
+.reveal.visible .pillar,
+.reveal.visible details,
+.reveal.visible .give-merch-card {
+  animation: staggerIn 0.6s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.reveal.visible .speaker-card:nth-child(1),
+.reveal.visible .schedule-day:nth-child(1),
+.reveal.visible .pillar:nth-child(1),
+.reveal.visible details:nth-child(1),
+.reveal.visible .give-merch-card:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.reveal.visible .speaker-card:nth-child(2),
+.reveal.visible .schedule-day:nth-child(2),
+.reveal.visible .pillar:nth-child(2),
+.reveal.visible details:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.reveal.visible .speaker-card:nth-child(3),
+.reveal.visible .schedule-day:nth-child(3),
+.reveal.visible .pillar:nth-child(3),
+.reveal.visible details:nth-child(3),
+.reveal.visible .give-merch-card:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.reveal.visible .schedule-day:nth-child(4),
+.reveal.visible .pillar:nth-child(4),
+.reveal.visible details:nth-child(4) {
+  animation-delay: 0.4s;
+}
+
+.reveal.visible .pillar:nth-child(5),
+.reveal.visible details:nth-child(5) {
+  animation-delay: 0.5s;
+}
+
+/* ==============================
    COUNTDOWN
 ============================== */
 .countdown-wrapper {
@@ -1340,6 +1400,13 @@ details.is-open .faq-content {
   50% {
     opacity: 1;
     height: 35px;
+  }
+}
+
+@keyframes staggerIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
