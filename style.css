@@ -6,10 +6,10 @@
   --clr-bg-alt: #0a0a0a;
   --clr-surface: #111111;
   --clr-surface-2: #1a1a1a;
-  --clr-text: #f0f0f0;
+  --clr-text: #f4f4f4;
   --clr-text-muted: #999999;
   --clr-text-muted-alt: #c0c0c0;
-  --clr-text-muted-alt-2: #eeeeee;
+  --clr-text-muted-alt-2: #d9d9d9f2;
   --clr-accent: #e10600;
   --clr-accent-dim: rgba(225, 6, 0, 0.15);
   --clr-border: #1f1f1f;
@@ -315,6 +315,7 @@ body.nav-open {
   opacity: 0.18;
   filter: grayscale(100%) contrast(1.4) brightness(0.6);
   z-index: 0;
+  animation: heroBgDrift 18s ease-in-out infinite alternate;
 }
 
 .hero::after {
@@ -327,20 +328,18 @@ body.nav-open {
   height: 50%;
   background: radial-gradient(
     ellipse,
-    var(--clr-accent-dim) 0%,
+    rgba(225, 6, 0, 0.15) 0%,
     transparent 70%
   );
   z-index: 0;
   pointer-events: none;
+  animation: heroGlowPulse 6s ease-in-out infinite;
 }
 
 .hero-content {
   position: relative;
   z-index: 3;
   max-width: 800px;
-  animation: heroFade 1.4s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
-  opacity: 0;
-  transform: translateY(30px);
 }
 
 /* ---- Title Stack ---- */
@@ -349,6 +348,10 @@ body.nav-open {
   flex-direction: column;
   align-items: center;
   line-height: 1;
+  opacity: 0;
+  transform: translateY(22px);
+  animation: heroElementIn 1s cubic-bezier(0.22, 0.61, 0.36, 1) 0.52s forwards;
+  will-change: transform, opacity;
 }
 
 .title-line {
@@ -359,30 +362,32 @@ body.nav-open {
   font-family: var(--ff-accent);
   font-style: italic;
   font-weight: var(--fw-regular);
-  font-size: clamp(2.8rem, 8vw, 6.5rem);
+  font-size: clamp(3.1rem, 8.5vw, 7rem);
   text-transform: uppercase;
   letter-spacing: 1px;
   color: var(--clr-text);
   margin-bottom: -0.18em;
   opacity: 0.95;
   text-shadow: 0 0 80px rgba(255, 255, 255, 0.03);
+  animation: heroTitleFloat 7s ease-in-out infinite;
 }
 
 .title-line--italic + .title-line--italic {
-  font-size: clamp(3.2rem, 9vw, 7.5rem);
+  font-size: clamp(3.5rem, 9.5vw, 8.2rem);
   letter-spacing: -1px;
-  margin-bottom: -0.08em;
+  margin-bottom: -0.125em;
   opacity: 1;
+  animation-delay: 0.35s;
 }
 
 .title-line--year {
   font-family: var(--ff-accent);
   font-weight: 500;
-  font-size: clamp(3.2rem, 8vw, 7.5rem);
+  font-size: clamp(3.5rem, 8.5vw, 8.2rem);
   color: var(--clr-accent);
   letter-spacing: -4px;
   line-height: 1;
-  margin-top: -0.35em;
+  margin-top: -0.315em;
   transform: scaleY(1.4) skewX(-12deg);
   transform-origin: top center;
   padding: 0 10px;
@@ -398,7 +403,10 @@ body.nav-open {
   letter-spacing: 4px;
   color: var(--clr-text-muted);
   margin-top: 6.25em;
-  margin-bottom: 2.5rem;
+  margin-bottom: 1.65rem;
+  opacity: 0;
+  transform: translateY(22px);
+  animation: heroElementIn 0.9s cubic-bezier(0.22, 0.61, 0.36, 1) 0.72s forwards;
 }
 
 .hero-divider {
@@ -406,8 +414,11 @@ body.nav-open {
   align-items: center;
   justify-content: center;
   gap: 1rem;
-  margin: 2.65em auto 2rem;
+  margin: 0em auto 1rem;
   width: 200px;
+  opacity: 0;
+  transform: translateY(22px);
+  animation: heroElementIn 0.9s cubic-bezier(0.22, 0.61, 0.36, 1) 0.86s forwards;
 }
 
 .divider-line {
@@ -419,22 +430,33 @@ body.nav-open {
     rgba(225, 6, 0, 0.4),
     transparent
   );
+  transform: scaleX(0.65);
+  transform-origin: center;
+  opacity: 0;
+  animation: dividerExpand 1.4s cubic-bezier(0.22, 0.61, 0.36, 1) 0.89s forwards;
 }
 
 .divider-icon {
   display: flex;
   align-items: center;
   justify-content: center;
-  animation: gentlePulse 3s ease-in-out infinite;
+  opacity: 0;
+  transform: scale(0.85);
+  animation:
+    dividerIconIn 1s cubic-bezier(0.22, 0.61, 0.36, 1) 0.93s forwards,
+    gentlePulse 3s ease-in-out 1.62s infinite;
 }
 
 .hero-subtitle {
   font-family: var(--ff-heading);
-  font-size: clamp(0.7rem, 2vw, 1.25rem);
+  font-size: clamp(0.65rem, 1.8vw, 1.1rem);
   font-weight: var(--fw-semibold);
   text-transform: uppercase;
-  letter-spacing: clamp(8px, 0.25vw, 12px);
-  color: var(--clr-text);
+  letter-spacing: clamp(8px, 0.225vw, 12px);
+  color: var(--clr-text-muted-alt-2);
+  opacity: 0;
+  transform: translateY(22px);
+  animation: heroElementIn 0.9s cubic-bezier(0.22, 0.61, 0.36, 1) 1.03s forwards;
 }
 
 .hero-subtitle em {
@@ -451,8 +473,12 @@ body.nav-open {
 .hero-info {
   display: flex;
   justify-content: center;
-  gap: 3rem;
-  margin-top: 2.5rem;
+  gap: 2.5rem;
+  margin-top: 2rem;
+  opacity: 0;
+  transform: translateY(22px);
+  animation: heroElementIn 0.95s cubic-bezier(0.22, 0.61, 0.36, 1) 1.17s
+    forwards;
 }
 
 .hero-date,
@@ -471,7 +497,7 @@ body.nav-open {
 }
 
 .info-value {
-  font-size: 1.3rem;
+  font-size: 1.15rem;
   letter-spacing: 3px;
   color: var(--clr-text);
 }
@@ -529,6 +555,12 @@ body.nav-open {
   cursor: pointer;
 }
 
+.hero .register-btn {
+  opacity: 0;
+  transform: translateY(22px);
+  animation: heroElementIn 1s cubic-bezier(0.22, 0.61, 0.36, 1) 1.35s forwards;
+}
+
 .register-btn::before {
   content: "";
   position: absolute;
@@ -559,6 +591,69 @@ body.nav-open {
 
 .register-btn:hover .btn-arrow {
   transform: translateX(4px);
+}
+
+/* ==============================
+   HERO ANIMATIONS
+============================== */
+@keyframes heroElementIn {
+  0% {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes heroGlowPulse {
+  0%,
+  100% {
+    opacity: 0.75;
+    transform: translateX(-50%) scale(1);
+  }
+
+  50% {
+    opacity: 1;
+    transform: translateX(-50%) scale(1.08);
+  }
+}
+
+@keyframes heroTitleFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-3px);
+  }
+}
+
+@keyframes dividerExpand {
+  0% {
+    opacity: 0;
+    transform: scaleX(0.65);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+}
+
+@keyframes dividerIconIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 /* ==============================
@@ -636,7 +731,7 @@ body.nav-open {
 .reveal.visible .schedule-day,
 .reveal.visible .pillar,
 .reveal.visible details,
-.reveal.visible .give-merch-card {
+.reveal.visible .support-sponsor-card {
   animation: staggerIn 0.6s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
   opacity: 0;
   transform: translateY(20px);
@@ -646,7 +741,7 @@ body.nav-open {
 .reveal.visible .schedule-day:nth-child(1),
 .reveal.visible .pillar:nth-child(1),
 .reveal.visible details:nth-child(1),
-.reveal.visible .give-merch-card:nth-child(1) {
+.reveal.visible .support-sponsor-card:nth-child(1) {
   animation-delay: 0.1s;
 }
 
@@ -661,7 +756,7 @@ body.nav-open {
 .reveal.visible .schedule-day:nth-child(3),
 .reveal.visible .pillar:nth-child(3),
 .reveal.visible details:nth-child(3),
-.reveal.visible .give-merch-card:nth-child(3) {
+.reveal.visible .support-sponsor-card:nth-child(3) {
   animation-delay: 0.3s;
 }
 
@@ -926,14 +1021,19 @@ body.nav-open {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: var(--space-gap);
+  align-items: stretch;
 }
 
 .speaker-card {
   background: var(--clr-surface);
   border: 1px solid var(--clr-border);
   overflow: hidden;
-  transition: all var(--transition-med);
+  transition:
+    border-color var(--transition-med),
+    transform var(--transition-med);
   position: relative;
+  display: flex;
+  flex-direction: column;
 }
 
 .speaker-card:hover {
@@ -941,93 +1041,115 @@ body.nav-open {
   transform: translateY(-6px);
 }
 
+/* ---- Image ---- */
 .speaker-img-wrap {
   position: relative;
   overflow: hidden;
-  height: 320px;
+  height: 340px;
   will-change: contents;
   isolation: isolate;
+  flex-shrink: 0;
 }
 
 .speaker-img-wrap img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: grayscale(70%) contrast(1.1);
-  transition: all var(--transition-slow);
+  object-position: top center;
+  filter: grayscale(20%) contrast(1.1);
+  transition:
+    filter var(--transition-slow),
+    transform var(--transition-slow);
   will-change: filter;
 }
 
 .speaker-card:hover .speaker-img-wrap img {
-  filter: grayscale(30%) contrast(1.1);
+  filter: grayscale(0%) contrast(1.1);
   transform: scale(1.05);
 }
 
+/* ---- Per-card image positioning ---- */
+.speaker-card:nth-child(1) .speaker-img-wrap img {
+  object-position: 20% 30%;
+}
+
+.speaker-card:nth-child(2) .speaker-img-wrap img {
+  object-position: center 15%;
+}
+
+.speaker-card:nth-child(3) .speaker-img-wrap img {
+  object-position: 0% 10%;
+  transform: scale(1.15);
+}
+
+.speaker-card:nth-child(3):hover .speaker-img-wrap img {
+  transform: scale(1.2);
+}
+
+/* ---- Overlay ---- */
 .speaker-img-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, var(--clr-surface) 0%, transparent 50%);
+  background: linear-gradient(
+    to top,
+    var(--clr-surface) 0%,
+    rgba(17, 17, 17, 0.4) 40%,
+    transparent 60%
+  );
   z-index: 1;
 }
 
+/* ---- Info ---- */
 .speaker-info {
   padding: 1.5rem 2rem 2rem;
   position: relative;
   z-index: 2;
   margin-top: -2rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .speaker-info h3 {
   font-family: var(--ff-heading);
-  font-size: 1.5rem;
+  font-size: 1.375rem;
+  font-weight: var(--fw-semibold);
   text-transform: uppercase;
-  letter-spacing: 2px;
-  margin-bottom: 0.4rem;
+  letter-spacing: 0.08em;
+  line-height: 1.2;
+  margin-bottom: 0;
 }
 
 .speaker-role {
   display: block;
-  font-size: 0.8rem;
+  font-size: 0.75rem;
+  font-weight: var(--fw-semibold);
   color: var(--clr-accent);
   text-transform: uppercase;
-  letter-spacing: 2px;
-  margin-bottom: 1rem;
+  letter-spacing: 0.12em;
+  line-height: 1.4;
+  margin-top: 0.5rem;
+}
+
+.speaker-org {
+  display: block;
+  font-size: 0.6875rem;
   font-weight: var(--fw-regular);
+  color: var(--clr-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  line-height: 1.4;
+  margin-top: 0.25rem;
+  margin-bottom: 0.875rem;
+  opacity: 0.5;
 }
 
 .speaker-info p {
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   color: var(--clr-text-muted);
   line-height: 1.6;
-}
-
-.speaker-img-placeholder {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(255, 255, 255, 0.02);
-  color: var(--clr-text-muted);
-  height: 320px;
-}
-
-.speaker-img-placeholder svg {
-  opacity: 0.15;
-}
-
-.speaker-card--pending .speaker-info {
   margin-top: 0;
-}
-
-.speaker-card--pending .speaker-info h3 {
-  font-size: 1rem;
-  letter-spacing: 3px;
-  color: var(--clr-text-muted);
-  opacity: 0.4;
-}
-
-.speaker-card--pending:hover {
-  transform: none;
-  border-color: var(--clr-border);
+  flex: 1;
 }
 
 /* ==============================
@@ -1108,6 +1230,72 @@ body.nav-open {
 .event-name--placeholder {
   color: var(--clr-text-muted);
   opacity: 0.4;
+}
+/* ---- Session hierarchy ---- */
+.event-row--session {
+  border-left: 2px solid var(--clr-accent);
+  padding-left: 1rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  margin-top: 0.25rem;
+  transition: transform var(--transition-fast);
+}
+
+.event-row--session:hover {
+  transform: translateX(4px);
+}
+
+.event-label {
+  font-size: 0.625rem;
+  font-weight: var(--fw-semibold);
+  color: var(--clr-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  opacity: 0.5;
+  line-height: 1;
+}
+
+.event-title {
+  font-size: 0.95rem;
+  font-weight: var(--fw-semibold);
+  color: var(--clr-text);
+  line-height: 1.4;
+  margin-top: 0.2rem;
+}
+
+/* ---- Meals (subdued) ---- */
+.event-row--meal .event-name {
+  font-size: 0.75rem;
+  opacity: 0.45;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.event-row--meal .event-name::before {
+  content: "· ";
+  color: var(--clr-accent);
+  opacity: 0.7;
+}
+
+/* ---- Activities (mid-weight) ---- */
+.event-row--activity .event-name {
+  font-size: 0.85rem;
+  opacity: 0.7;
+}
+
+/* ---- Day header breathing room ---- */
+.day-header {
+  margin-bottom: 1.75rem;
+  padding-bottom: 1.15rem;
+}
+
+.day-name {
+  letter-spacing: 0.12em;
+}
+
+.day-date {
+  letter-spacing: 0.18em;
+  margin-top: 0.4rem;
 }
 
 /* ==============================
@@ -1209,9 +1397,9 @@ details.is-open .faq-content {
 }
 
 /* ==============================
-   GIVE & MERCH
+   SUPPORT & MERCH
 ============================== */
-.give-merch-layout {
+.support-sponsor-layout {
   display: grid;
   grid-template-columns: 1fr auto 1fr;
   gap: 3rem;
@@ -1219,7 +1407,7 @@ details.is-open .faq-content {
   margin-top: 1rem;
 }
 
-.give-merch-divider {
+.support-sponsor-divider {
   width: 1px;
   align-self: stretch;
   background: linear-gradient(
@@ -1230,7 +1418,7 @@ details.is-open .faq-content {
   );
 }
 
-.give-merch-card {
+.support-sponsor-card {
   padding: 2rem 0;
   display: flex;
   flex-direction: column;
@@ -1238,7 +1426,7 @@ details.is-open .faq-content {
   height: 100%;
 }
 
-.gm-icon {
+.support-sponsor-icon {
   width: 52px;
   height: 52px;
   display: flex;
@@ -1249,11 +1437,11 @@ details.is-open .faq-content {
   transition: border-color var(--transition-fast);
 }
 
-.give-merch-card:hover .gm-icon {
+.support-sponsor-card:hover .support-sponsor-icon {
   border-color: var(--clr-accent);
 }
 
-.give-merch-card h3 {
+.support-sponsor-card h3 {
   font-family: var(--ff-heading);
   font-size: 1.8rem;
   text-transform: uppercase;
@@ -1261,7 +1449,7 @@ details.is-open .faq-content {
   margin-bottom: 1rem;
 }
 
-.give-merch-card p {
+.support-sponsor-card p {
   font-size: 1rem;
   color: var(--clr-text-muted);
   line-height: 1.7;
@@ -1270,8 +1458,76 @@ details.is-open .faq-content {
   flex: 1;
 }
 
-.give-merch-card .register-btn {
+.support-sponsor-card > .register-btn,
+.support-sponsor-card .support-hover-wrap {
   margin-top: 2rem;
+}
+
+.support-hover-wrap {
+  position: relative;
+  display: inline-flex;
+  align-items: flex-end;
+  min-height: 62px; /* Match the Merch button height */
+}
+
+.support-hover-wrap .register-btn {
+  margin-top: 0;
+}
+
+.support-hover-wrap .support-toggle-btn {
+  position: relative;
+  z-index: 2;
+  background-color: var(--clr-bg);
+  padding: 1.25rem 2.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease,
+    visibility 0.3s ease;
+}
+
+/* Hidden popup buttons */
+.give-options {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(10px);
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease,
+    visibility 0.3s ease;
+  z-index: 3;
+}
+
+.give-options .register-btn {
+  width: auto;
+  min-width: max-content;
+  margin-top: 0;
+}
+
+/* Hover replacement */
+.support-hover-wrap:hover .support-toggle-btn {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-8px);
+  pointer-events: none;
+}
+
+.support-hover-wrap:hover .give-options {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(0);
 }
 
 /* ==============================
@@ -1381,16 +1637,6 @@ details.is-open .faq-content {
   }
 }
 
-@keyframes dotPulse {
-  0%,
-  100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.4;
-  }
-}
-
 @keyframes scrollPulseMobile {
   0%,
   100% {
@@ -1407,6 +1653,16 @@ details.is-open .faq-content {
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@keyframes dotPulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
   }
 }
 
@@ -1432,7 +1688,7 @@ details.is-open .faq-content {
     background: rgba(5, 5, 5, 0.97);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    padding: calc(var(--nav-height) + 21rem) 2.5rem 3rem;
+    padding: calc(var(--nav-height) + 2rem) 2.5rem 3rem;
     gap: 0;
     justify-content: flex-start;
     align-items: flex-start;
@@ -1606,13 +1862,11 @@ details.is-open .faq-content {
    769px–900px RANGE
 ============================== */
 @media (min-width: 769px) and (max-width: 900px) {
-  /* Schedule — Saturday accent border in 2×2 grid */
   .schedule-day:nth-child(3) {
     border-left: 1px solid var(--clr-accent);
   }
 
-  /* Give & Merch — intermediate button */
-  .give-merch-card .register-btn {
+  .support-sponsor-card .register-btn {
     font-size: 0.675rem;
     letter-spacing: 2.6px;
     padding: 1rem 2.1rem;
@@ -1653,21 +1907,30 @@ details.is-open .faq-content {
     padding: 6rem 6% 4rem;
   }
 
+  .title-line--italic {
+    font-size: clamp(3.2rem, 10.8vw, 5.8rem);
+  }
+
+  .title-line--italic + .title-line--italic {
+    font-size: clamp(3.55rem, 12vw, 6.35rem);
+  }
+
   .title-line--year {
+    font-size: clamp(3.55rem, 11.2vw, 6.35rem);
     letter-spacing: -3px;
   }
 
   .hero-tag {
     font-size: 0.6rem;
     letter-spacing: 3px;
-    margin-top: 4em;
-    margin-bottom: 1.5rem;
+    margin-top: 6em;
+    margin-bottom: 1.1rem;
   }
 
   .hero-divider {
     width: 140px;
     gap: 0.8rem;
-    margin: 1.25em auto 1rem;
+    margin: 0.85em auto 0.85rem;
   }
 
   .hero-subtitle {
@@ -1696,11 +1959,11 @@ details.is-open .faq-content {
   }
 
   .register-btn {
-    padding: 1rem 2rem;
-    font-size: 0.8rem;
-    letter-spacing: 2.75px;
-    gap: 0.85rem;
-    margin-top: 2.75rem;
+    padding: 0.92rem 1.8rem;
+    font-size: 0.76rem;
+    letter-spacing: 2.5px;
+    gap: 0.75rem;
+    margin-top: 2.4rem;
   }
 
   .scroll-indicator {
@@ -1808,9 +2071,8 @@ details.is-open .faq-content {
     gap: 1.5rem;
   }
 
-  .speaker-img-wrap,
-  .speaker-img-placeholder {
-    height: 260px;
+  .speaker-img-wrap {
+    height: clamp(300px, 80vw, 575px);
   }
 
   .speaker-info {
@@ -1818,23 +2080,25 @@ details.is-open .faq-content {
   }
 
   .speaker-info h3 {
-    font-size: 1.3rem;
-    letter-spacing: 1.5px;
+    font-size: 1.25rem;
+    letter-spacing: 0.07em;
   }
 
   .speaker-role {
     font-size: 0.7rem;
-    letter-spacing: 1.5px;
+    letter-spacing: 0.1em;
+    margin-top: 0.45rem;
+  }
+
+  .speaker-org {
+    font-size: 0.625rem;
+    letter-spacing: 0.05em;
+    margin-top: 0.2rem;
     margin-bottom: 0.75rem;
   }
 
   .speaker-info p {
     font-size: 0.85rem;
-  }
-
-  .speaker-card--pending .speaker-info h3 {
-    font-size: 0.9rem;
-    letter-spacing: 2.5px;
   }
 
   /* Schedule */
@@ -1908,13 +2172,13 @@ details.is-open .faq-content {
     line-height: 1.65;
   }
 
-  /* Give & Merch */
-  .give-merch-layout {
+  /* Support & Merch */
+  .support-sponsor-layout {
     grid-template-columns: 1fr;
     gap: 0;
   }
 
-  .give-merch-divider {
+  .support-sponsor-divider {
     width: 100%;
     height: 1px;
     background: linear-gradient(
@@ -1925,37 +2189,93 @@ details.is-open .faq-content {
     );
   }
 
-  .give-merch-card {
+  .support-sponsor-card {
     padding: 2.25rem 0;
   }
 
-  .give-merch-card h3 {
+  .support-sponsor-layout .support-sponsor-card:first-child {
+    padding-bottom: 6.5rem;
+  }
+
+  .support-sponsor-card h3 {
     font-size: 1.5rem;
     letter-spacing: 2.5px;
     margin-bottom: 0.75rem;
   }
 
-  .give-merch-card p {
+  .support-sponsor-card p {
     font-size: 0.9rem;
     line-height: 1.65;
   }
 
-  .gm-icon {
+  .support-sponsor-icon {
     width: 46px;
     height: 46px;
     margin-bottom: 1.25rem;
   }
 
-  .gm-icon svg {
+  .support-sponsor-icon svg {
     width: 24px;
     height: 24px;
   }
 
-  .give-merch-card .register-btn {
+  .support-sponsor-card > .register-btn {
     margin-top: 1.5rem;
     padding: 1rem 2rem;
     font-size: 0.75rem;
     letter-spacing: 2.5px;
+  }
+
+  .support-hover-wrap {
+    position: relative;
+    margin-top: 1.5rem;
+    min-height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .support-hover-wrap .support-toggle-btn {
+    margin-top: 0;
+    padding: 1rem 2rem;
+    font-size: 0.75rem;
+    letter-spacing: 2.5px;
+    align-self: flex-start;
+  }
+
+  .give-options {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-top: 0;
+    gap: 0.5rem;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: none;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: auto;
+  }
+
+  .give-options .register-btn {
+    margin-top: 0;
+    align-self: flex-start;
+  }
+
+  .support-hover-wrap.active .support-toggle-btn {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+
+  .support-hover-wrap.active .give-options {
+    position: static;
+    margin-top: 0;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
   }
 
   /* Footer */
@@ -1992,7 +2312,7 @@ details.is-open .faq-content {
 }
 
 /* ==============================
-   480px
+   480px  
 ============================== */
 @media (max-width: 480px) {
   /* Sections */
@@ -2023,29 +2343,29 @@ details.is-open .faq-content {
   }
 
   .title-line--italic {
-    font-size: clamp(2.6rem, 12vw, 3.2rem);
+    font-size: clamp(3.15rem, 14vw, 4.75rem);
   }
 
   .title-line--italic + .title-line--italic {
-    font-size: clamp(2.8rem, 14vw, 3.6rem);
+    font-size: clamp(3.45rem, 15.75vw, 5.25rem);
   }
 
   .title-line--year {
-    font-size: clamp(2.8rem, 13vw, 3.6rem);
+    font-size: clamp(3.45rem, 16vw, 5.25rem);
     letter-spacing: -2px;
   }
 
   .hero-tag {
     font-size: 0.475rem;
     letter-spacing: 2px;
-    margin-top: 4.75em;
-    margin-bottom: 1rem;
+    margin-top: 6em;
+    margin-bottom: 0.75rem;
   }
 
   .hero-divider {
     width: 150px;
     gap: 0.6rem;
-    margin: 0.75em auto 0.75rem;
+    margin: 0.5em auto 0.6rem;
   }
 
   .hero-subtitle {
@@ -2060,7 +2380,7 @@ details.is-open .faq-content {
 
   .hero-info {
     gap: 2rem;
-    margin-top: 1.5rem;
+    margin-top: 1.25rem;
   }
 
   .info-label {
@@ -2070,16 +2390,16 @@ details.is-open .faq-content {
   }
 
   .info-value {
-    font-size: 0.9rem;
+    font-size: 0.75rem;
     letter-spacing: 1.5px;
   }
 
   .register-btn {
-    padding: 1rem 2.25rem;
-    font-size: 0.7rem;
-    letter-spacing: 2px;
-    gap: 0.75rem;
-    margin-top: 2.5rem;
+    padding: 0.88rem 1.9rem;
+    font-size: 0.66rem;
+    letter-spacing: 1.8px;
+    gap: 0.65rem;
+    margin-top: 1.75rem;
   }
 
   .scroll-indicator {
@@ -2186,14 +2506,8 @@ details.is-open .faq-content {
     gap: 1.25rem;
   }
 
-  .speaker-img-wrap,
-  .speaker-img-placeholder {
-    height: 220px;
-  }
-
-  .speaker-img-placeholder svg {
-    width: 36px;
-    height: 36px;
+  .speaker-img-wrap {
+    height: clamp(330px, 75vw, 450px);
   }
 
   .speaker-info {
@@ -2202,13 +2516,21 @@ details.is-open .faq-content {
 
   .speaker-info h3 {
     font-size: 1.1rem;
-    letter-spacing: 1px;
-    margin-bottom: 0.3rem;
+    letter-spacing: 0.06em;
+    margin-bottom: 0;
   }
 
   .speaker-role {
     font-size: 0.65rem;
-    letter-spacing: 1.5px;
+    letter-spacing: 0.1em;
+    margin-top: 0.4rem;
+  }
+
+  .speaker-org {
+    font-size: 0.575rem;
+    letter-spacing: 0.04em;
+    margin-top: 0.15rem;
+    margin-bottom: 0.6rem;
   }
 
   .speaker-info p {
@@ -2218,11 +2540,6 @@ details.is-open .faq-content {
 
   .speaker-card:hover {
     transform: translateY(-3px);
-  }
-
-  .speaker-card--pending .speaker-info h3 {
-    font-size: 0.8rem;
-    letter-spacing: 2px;
   }
 
   /* Schedule */
@@ -2281,40 +2598,54 @@ details.is-open .faq-content {
     padding-bottom: 0.25rem;
   }
 
-  /* Give & Merch */
-  .give-merch-card {
+  /* Support & Sponsor */
+  .support-sponsor-card {
     padding: 2rem 0;
   }
 
-  .give-merch-card h3 {
+  .support-sponsor-card h3 {
     font-size: 1.25rem;
     letter-spacing: 2px;
     margin-bottom: 0.6rem;
   }
 
-  .give-merch-card p {
+  .support-sponsor-card p {
     font-size: 0.8rem;
     line-height: 1.6;
     margin-bottom: 0.25rem;
   }
 
-  .gm-icon {
+  .support-sponsor-icon {
     width: 40px;
     height: 40px;
     margin-bottom: 1rem;
   }
 
-  .gm-icon svg {
+  .support-sponsor-icon svg {
     width: 20px;
     height: 20px;
   }
 
-  .give-merch-card .register-btn {
+  .support-sponsor-card .register-btn {
     margin-top: 1.25rem;
     padding: 0.9rem 1.75rem;
     font-size: 0.65rem;
     letter-spacing: 2px;
     gap: 0.6rem;
+  }
+
+  .support-sponsor-card .support-hover-wrap {
+    margin-top: 0.5rem;
+  }
+
+  /* Support popup spacing only */
+  .give-options {
+    margin-top: 0.45rem;
+    gap: 0.45rem;
+  }
+
+  .give-options .register-btn {
+    margin-top: 0;
   }
 
   /* Footer */

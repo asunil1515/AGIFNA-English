@@ -384,3 +384,20 @@
     cardObserver.observe(hero);
   }
 })();
+
+document.querySelectorAll(".support-toggle-btn").forEach((btn) => {
+  btn.addEventListener("click", function () {
+    const options = this.nextElementSibling;
+
+    if (options.style.display === "flex") {
+      options.style.display = "none";
+      options.classList.remove("show");
+    } else {
+      options.style.display = "flex";
+      requestAnimationFrame(() => {
+        options.classList.add("show");
+      });
+      this.style.display = "none";
+    }
+  });
+});
